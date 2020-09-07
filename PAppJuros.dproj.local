@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/11/14 14:19:08.000.219,=C:\Users\Desenvolvimento - XE\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/11/20 13:25:33.000.222,=C:\Users\Desenvolvimento - XE\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/09/03 16:59:48.000.226,=C:\Users\Desenvolvimento - XE\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/09/03 17:00:24.000.338,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\uPrincipal.pas=C:\Users\Desenvolvimento - XE\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/09/03 17:00:24.000.338,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\uPrincipal.dfm=C:\Users\Desenvolvimento - XE\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2020/09/03 17:00:33.000.461,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\PAppJuros.dproj=C:\Users\Desenvolvimento - XE\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/09/05 15:06:46.000.826,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\uPrincipal.pas=</Transaction>
+    <Transaction>2020/09/05 15:07:34.000.923,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\uPrincipal.pas</Transaction>
+    <Transaction>2020/09/05 15:27:00.000.276,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas</Transaction>
+    <Transaction>2020/09/05 15:30:16.000.189,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\Unit1.pas</Transaction>
+    <Transaction>2020/09/05 15:30:16.000.189,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.dfm=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\Unit1.dfm</Transaction>
+    <Transaction>2020/09/05 15:30:56.000.677,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\Unit1.dfm=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\UFormSistemaAmortizacaoJuros.dfm</Transaction>
+    <Transaction>2020/09/05 15:30:56.000.677,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\Unit1.pas=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\UFormSistemaAmortizacaoJuros.pas</Transaction>
+    <Transaction>2020/09/05 15:31:21.000.805,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\uPrincipal.pas=</Transaction>
+    <Transaction>2020/09/05 15:32:49.000.209,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\uFormPrincipal.pas</Transaction>
+    <Transaction>2020/09/05 15:32:56.000.612,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\UFormSistemaAmortizacaoJuros.pas=</Transaction>
+    <Transaction>2020/09/05 15:33:54.000.946,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\uFormSistemaAmortizacaoJuros.pas</Transaction>
+    <Transaction>2020/09/05 15:36:33.000.061,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\uFormSistemaAmortizacaoJuros.pas=</Transaction>
+    <Transaction>2020/09/05 15:37:18.000.936,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\uFormSistemaPagamentoUnico.pas</Transaction>
+    <Transaction>2020/09/05 16:48:49.000.312,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas</Transaction>
+    <Transaction>2020/09/05 16:49:23.000.510,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uParcelamento.pas</Transaction>
+    <Transaction>2020/09/05 17:29:06.000.718,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas</Transaction>
+    <Transaction>2020/09/05 18:02:38.000.970,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uParcelamento.pas=</Transaction>
+    <Transaction>2020/09/05 18:04:05.000.600,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uobjParcelamento.pas</Transaction>
+    <Transaction>2020/09/06 15:50:17.000.965,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas</Transaction>
+    <Transaction>2020/09/06 15:51:07.000.111,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uobjRegrasCalculoJuros.pas=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas</Transaction>
+    <Transaction>2020/09/06 16:27:02.000.588,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas</Transaction>
+    <Transaction>2020/09/06 16:28:14.000.331,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uobjListaRegrasCalculo.pas=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas</Transaction>
+    <Transaction>2020/09/06 16:30:22.000.642,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uobjRegrasCalculoJuros.pas=</Transaction>
+    <Transaction>2020/09/06 16:30:45.000.555,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uobjRegrasCalculoJuros.pas</Transaction>
+    <Transaction>2020/09/06 16:31:01.000.687,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uobjRegrasCalculoJuros.pas=</Transaction>
+    <Transaction>2020/09/06 16:31:53.000.602,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\controller\uCarregaListas.pas</Transaction>
+    <Transaction>2020/09/06 17:12:23.000.582,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas</Transaction>
+    <Transaction>2020/09/06 17:13:01.000.509,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uDMFinanceiro.pas=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas</Transaction>
+    <Transaction>2020/09/06 17:13:01.000.509,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uDMFinanceiro.dfm=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.dfm</Transaction>
+    <Transaction>2020/09/06 17:58:52.000.672,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas</Transaction>
+    <Transaction>2020/09/06 18:01:33.000.454,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uobjListaParcelamento.pas=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\Unit1.pas</Transaction>
+    <Transaction>2020/09/06 23:55:20.000.559,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\model\uDMFinanceiro.pas=</Transaction>
+    <Transaction>2020/09/07 00:57:57.000.446,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\uFormSistemaPagamentoUnico.pas=</Transaction>
+    <Transaction>2020/09/07 00:58:10.000.134,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\uFormSistemaPagamentoUnico.pas</Transaction>
+    <Transaction>2020/09/07 00:59:09.000.020,C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\uFormSistemaPagamentoUnico.pas=</Transaction>
+    <Transaction>2020/09/07 01:09:35.000.087,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\uFormParcelamento.pas</Transaction>
+    <Transaction>2020/09/07 01:14:10.000.090,=C:\Users\Desenvolvimento - XE\Desktop\AppJuros\view\uFormSistemaPagamentoUnico.pas</Transaction>
+  </Transactions>
+</BorlandProject>

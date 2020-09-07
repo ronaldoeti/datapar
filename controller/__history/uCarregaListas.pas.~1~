@@ -1,0 +1,37 @@
+unit uobjRegrasCalculoJuros;
+
+interface
+
+uses
+  System.Classes;
+
+type
+  TEnumUtils<T> = class
+    class procedure EnumToList(Value : TStrings);
+  end;
+
+implementation
+
+uses
+  System.TypInfo;
+
+{ TEnumUtils<T> }
+
+class procedure TEnumUtils<T>.EnumToList(Value: TStrings);
+var
+  Aux: String;
+  I, Posicao: Integer;
+begin
+  Value.Clear;
+  I := 0;
+  repeat
+    //typeInfo - recebe as informacoes do tipo generico
+    //GetEnumName - recebe uma posicao para pegar um nome
+    Aux := GetEnumName(TypeInfo(T), I);
+	  Posicao := GetEnumValue(TypeInfo(T), Aux); //Condicao para parar a repeticao, getenumvalue recebe um nome para retornar uma posicao
+	  if Posicao <> -1 then Value.Add(Aux);
+    Inc(I);
+  until Posicao < 0;  // quando for -1 para o loop
+end;
+
+end.

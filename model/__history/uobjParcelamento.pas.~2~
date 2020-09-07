@@ -1,0 +1,28 @@
+unit uobjParcelamento;
+
+interface
+
+type
+  TobjParcelamento = class
+  private
+    FSaldoDevedor: Currency;
+    FJuros: Currency;
+    FPagamento: Currency;
+    FPeriodo: Integer;
+    FAmortizacao: Currency;
+    { private declarations }
+  protected
+    { protected declarations }
+  public
+    { public declarations }
+    property Periodo: Integer read FPeriodo write FPeriodo;
+    property Juros: Currency read FJuros write FJuros;
+    property Amortizacao: Currency read FAmortizacao write FAmortizacao;
+    property Pagamento: Currency read FPagamento write FPagamento;
+    property SaldoDevedor: Currency read FSaldoDevedor write FSaldoDevedor;
+
+  end;
+
+implementation
+
+end.

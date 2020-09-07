@@ -1,0 +1,114 @@
+unit uobjParcelamento;
+
+interface
+
+type
+  TobjParcelamento = class
+  private
+    FSaldoDevedor: Currency;
+    FJuros: Currency;
+    FPagamento: Currency;
+    FPeriodo: Integer;
+    FAmortizacao: Currency;
+
+    function GetAmortizacao: Currency;
+    function GetJuros: Currency;
+    function GetPagamento: Currency;
+    function GetPeriodo: Integer;
+    function GetSaldoDevedor: Currency;
+
+    procedure SetAmortizacao(const Value: Currency);
+    procedure SetJuros(const Value: Currency);
+    procedure SetPagamento(const Value: Currency);
+    procedure SetPeriodo(const Value: Integer);
+    procedure SetSaldoDevedor(const Value: Currency);
+    { private declarations }
+  protected
+    { protected declarations }
+  public
+    { public declarations }
+    constructor Create; virtual;
+    destructor Destroy; override;
+
+    property Periodo: Integer
+       read GetPeriodo write SetPeriodo;
+    property Juros: Currency
+      read GetJuros write SetJuros;
+    property Amortizacao: Currency
+      read GetAmortizacao write SetAmortizacao;
+    property Pagamento: Currency
+      read GetPagamento write SetPagamento;
+    property SaldoDevedor: Currency
+      read GetSaldoDevedor write SetSaldoDevedor;
+  end;
+
+implementation
+
+{ TobjParcelamento }
+
+constructor TobjParcelamento.Create;
+begin
+  FSaldoDevedor:= 0;
+  FJuros:=0;
+  FPagamento:=0;
+  FPeriodo:=0;
+  FAmortizacao:=0;
+end;
+
+destructor TobjParcelamento.Destroy;
+begin
+
+  inherited;
+end;
+
+function TobjParcelamento.GetAmortizacao: Currency;
+begin
+  Result := FAmortizacao;
+end;
+
+function TobjParcelamento.GetJuros: Currency;
+begin
+  Result := FJuros;
+end;
+
+function TobjParcelamento.GetPagamento: Currency;
+begin
+  Result := FPagamento;
+end;
+
+function TobjParcelamento.GetPeriodo: Integer;
+begin
+  Result := FPeriodo;
+end;
+
+function TobjParcelamento.GetSaldoDevedor: Currency;
+begin
+  Result := FSaldoDevedor;
+end;
+
+procedure TobjParcelamento.SetAmortizacao(const Value: Currency);
+begin
+  FAmortizacao := Value;
+end;
+
+procedure TobjParcelamento.SetJuros(const Value: Currency);
+begin
+  FJuros := Value;
+end;
+
+procedure TobjParcelamento.SetPagamento(const Value: Currency);
+begin
+  FPagamento := Value;
+end;
+
+procedure TobjParcelamento.SetPeriodo(const Value: Integer);
+begin
+  FPeriodo := Value;
+end;
+
+procedure TobjParcelamento.SetSaldoDevedor(const Value: Currency);
+begin
+  FSaldoDevedor := Value;
+end;
+
+end.

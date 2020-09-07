@@ -1,0 +1,20 @@
+unit uobjListaRegrasCalculo;
+
+interface
+
+type
+  TListaRegrasCalculo = (
+    '1 Sistema de Pagamento único',
+    '2 Sistema de Pagamentos Variáveis',
+    '3 Sistema Americano',
+    '4 Sistema de Amortização Constante (SAC)',
+    '5 Sistema Price (Sistema Francês)',
+    '6 Sistema de Amortização Misto (SAM)',
+    '7 Sistema Alemão');
+
+implementation
+
+end.
+
+
+

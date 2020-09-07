@@ -1,0 +1,20 @@
+unit uobjListaRegrasCalculo;
+
+interface
+
+type
+  TRegras = (
+    SistemaPagamentoUnico,
+    SistemaPagamentosVariaveis,
+    SistemaAmericano,
+    SistemaAmortizacaoConstante,
+    SistemaPrice,
+    SistemaAmortizacaoMisto,
+    SistemaAlemao);
+
+implementation
+
+end.
+
+
+

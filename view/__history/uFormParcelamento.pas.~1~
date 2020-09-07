@@ -1,0 +1,218 @@
+unit uFormParcelamento;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Mask, RxToolEdit, RxCurrEdit,
+  Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, uobjListaRegrasCalculo,
+  uobjParcelamento, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxStyles, cxCustomData, cxFilter, cxData,
+  cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel, cxClasses,
+  cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxGrid, Datasnap.DBClient;
+
+type
+  TFormParcelamento = class(TForm)
+    pnlRodape: TPanel;
+    dbgrdGrid: TDBGrid;
+    pnlTop: TPanel;
+    lblCapital: TLabel;
+    edtCapital: TCurrencyEdit;
+    edtTaxaJuros: TCurrencyEdit;
+    lblTaxaJuros: TLabel;
+    btnCalcular: TButton;
+    cbbListaRegras: TComboBox;
+    lblre: TLabel;
+    edtMeses: TEdit;
+    lblMeses: TLabel;
+    ClientDataSet: TClientDataSet;
+    DataSource: TDataSource;
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure btnCalcularClick(Sender: TObject);
+  private
+    { Private declarations }
+    function SetCalculaSistemaPagamentoUnico(vCapital, vTaxaJuros: Double; vMeses: Integer): Boolean;
+    procedure SetConfiguracoes;
+    procedure SetInstancia;
+    procedure SetValidaCalculoParcelamento;
+    function SetValidateForm(): Boolean;
+  public
+    { Public declarations }
+    constructor Create(AOwner: TComponent); override;
+    destructor Destroy; override;
+  end;
+
+var
+  FormParcelamento: TFormParcelamento;
+
+implementation
+
+uses
+  uCarregaListas, System.Math, System.Generics.Collections;
+
+{$R *.dfm}
+
+
+procedure TFormParcelamento.SetConfiguracoes;
+begin
+  TCarregaLista<TListaRegrasCalculo>.PopulaLista(cbbListaRegras.Items);
+end;
+
+procedure TFormParcelamento.SetInstancia;
+begin
+  with ClientDataSet, FieldDefs do
+  begin
+    if FieldCount = 0 then
+    begin
+      Clear;
+      Add('Periodo',ftInteger);
+      Add('Juros',ftFloat);
+      Add('Amortizacao',ftFloat);
+      Add('Pagamento',ftFloat);
+      Add('SaldoDevedor', ftFloat);
+      CreateDataSet;
+    end;
+  end;
+end;
+
+procedure TFormParcelamento.SetValidaCalculoParcelamento;
+begin
+
+end;
+
+function TFormParcelamento.SetValidateForm: Boolean;
+begin
+  Result := False;
+
+  If edtCapital.Value = 0 Then
+  Begin
+    messagedlg('Você deve o capital!', mtinformation,[mbyes],0);
+    edtCapital.SetFocus;
+    Abort;
+  end
+  Else
+  If edtTaxaJuros.Value = 0 Then
+  Begin
+    messagedlg('Você deve a Taxa de Juros!', mtinformation,[mbyes],0);
+    edtTaxaJuros.SetFocus;
+    Abort;
+  end;
+
+  Result := False;
+end;
+
+procedure TFormParcelamento.btnCalcularClick(Sender: TObject);
+begin
+  if not SetValidateForm then
+  begin
+//    case TListaRegrasCalculo of
+//      SistemaPagamentoUnico:
+        SetCalculaSistemaPagamentoUnico(edtCapital.Value, edtTaxaJuros.Value, StrToInt(edtMeses.Text));
+//      SistemaPagamentosVariaveis:;
+//      SistemaAmericano:;
+//      SistemaAmortizacaoConstante:;
+//      SistemaPrice:;
+//      SistemaAmortizacaoMisto:;
+//      SistemaAlemao:;
+    end;
+  end;
+end;
+
+function TFormParcelamento.SetCalculaSistemaPagamentoUnico(vCapital,
+  vTaxaJuros: Double; vMeses: Integer): Boolean;
+var
+  I : Integer;
+  vObjParcelamento: TobjParcelamento;
+  vTotalJuros: Extended;
+begin
+  vTotalJuros := 0;
+  try
+    for I := 0 to vMeses + 1 do
+    begin
+      vObjParcelamento := TobjParcelamento.Create;
+      with vObjParcelamento do
+      begin
+        if I = 0 then
+        begin
+          Periodo := 0;
+          Juros := 0;
+          Amortizacao = 0;
+          Pagamento := 0;
+          SaldoDevedor :=0
+        end
+        else
+        begin
+          Periodo := I;
+          Juros :=(((vCapital + vTotalJuros) * (Power((1+(vTaxaJuros/100)), 1))) - (vCapital + vTotalJuros));
+          vTotalJuros := vTotalJuros + vObjParcelamento.Juros;
+          SaldoDevedor := vCapital + vTotalJuros;
+          Amortizacao := 0;
+          Pagamento := 0;
+
+          if (I >= vMeses) then
+          begin
+            Amortizacao := vCapital;
+            Pagamento := vCapital + vTotalJuros;
+            SaldoDevedor := 0;
+          end;
+        end;
+
+        {$Region 'Carrega Registro na Grid'}
+        ClientDataSet.Insert;
+        ClientDataSet.Fieldbyname('Periodo').AsInteger := Periodo;
+        ClientDataSet.Fieldbyname('Juros').AsFloat := Juros;
+        ClientDataSet.Fieldbyname('Amortizacao').AsFloat := Amortizacao;
+        ClientDataSet.Fieldbyname('Pagamento').AsFloat := Pagamento;
+        ClientDataSet.Fieldbyname('SaldoDevedor').AsFloat := SaldoDevedor;
+        ClientDataSet.Post;
+        {$EndRegion}
+
+        if I > vMeses then
+        begin
+          {$Region 'Carrega Registro na Grid'}
+          ClientDataSet.Insert;
+          ClientDataSet.Fieldbyname('Periodo').AsInteger := 0;
+          ClientDataSet.Fieldbyname('Juros').AsFloat := vTotalJuros;
+          ClientDataSet.Fieldbyname('Amortizacao').AsFloat := vCapital;
+          ClientDataSet.Fieldbyname('Pagamento').AsFloat := Pagamento;
+          ClientDataSet.Fieldbyname('SaldoDevedor').AsFloat := 0;
+          ClientDataSet.Post;
+          {$EndRegion}
+        end;
+
+
+
+        Free;
+      end;
+    end;
+  finally
+     ClientDataSet.Close;
+  end;
+end;
+
+constructor TFormParcelamento.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+
+  SetInstancia;
+  SetConfiguracoes;
+end;
+
+destructor TFormParcelamento.Destroy;
+begin
+
+  inherited Destroy;
+end;
+
+procedure TFormParcelamento.FormKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    Key := #0;
+    Perform(WM_NEXTDLGCTL, 0, 0);
+  end;
+end;
+
+end.
